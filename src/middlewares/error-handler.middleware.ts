@@ -6,6 +6,7 @@ export interface httpError extends Error{
 }
 
 const errorHandler = (error:httpError,req:Request,res:Response,next:NextFunction)=>{
+    console.log(error)
     res.status(error.status || 500).json({message: error.message})
 }
 export default errorHandler
