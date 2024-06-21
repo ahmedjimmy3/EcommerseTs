@@ -19,7 +19,7 @@ function initiateApp(app:Application):void{
 
     app.use('/Auth', Routers.AuthRoute.router)
 
-    app.use('*',(req:Request,res:Response,next:NextFunction)=>{
+    app.all('*',(req:Request,res:Response,next:NextFunction)=>{
         res.status(404).json({message:'This url is not found'})
     })
 
