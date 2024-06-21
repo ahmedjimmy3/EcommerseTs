@@ -39,7 +39,7 @@ const authMiddleware = async(Role:systemRoles[])=>{
             next()
         } catch (error) {
             console.log(error)
-            return next({message:'Something wrong please try again!!'})
+            return next({message:'Something wrong please try again .!!'})
         }
     }
 }
