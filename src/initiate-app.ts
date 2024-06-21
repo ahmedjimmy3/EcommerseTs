@@ -4,6 +4,7 @@ import express from 'express'
 import DataBase from "../db/db-connection"
 import * as Routers from "./modules/index-router"
 
+
 function initiateApp(app:Application):void{
     const db = new DataBase()
     
@@ -19,7 +20,7 @@ function initiateApp(app:Application):void{
 
     app.use('/Auth', Routers.AuthRoute.router)
 
-    app.use('*',(req:Request,res:Response,next:NextFunction)=>{
+    app.all('*',(req:Request,res:Response,next:NextFunction)=>{
         res.status(404).json({message:'This url is not found'})
     })
 

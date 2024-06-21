@@ -1,3 +1,5 @@
+import { systemRoles } from "../../utils/system-roles"
+
 export interface AuthDTO {
     id?:number,
     username:string,
@@ -7,7 +9,8 @@ export interface AuthDTO {
     address:string,
     age:number,
     isEmailVerified?:string,
-    isLoggedIn?:string
+    isLoggedIn?:string,
+    role?:systemRoles
 }
 
 export interface SignInDTO{
