@@ -4,7 +4,6 @@ import express from 'express'
 import DataBase from "../db/db-connection"
 import * as Routers from "./modules/index-router"
 
-
 function initiateApp(app:Application):void{
     const db = new DataBase()
     
