@@ -9,6 +9,7 @@ import jwt from 'jsonwebtoken'
 
 const db = new DataBase().connectToDB()
 class AuthController implements IAuthController {
+  
     async AllUsers(req: Request|any, res: Response, next: NextFunction): Promise<void> {
         const {id} = req.authUser
         const getAllUsersQuery = `select username,email,age,address,phone from auth where id <> ?`
@@ -57,12 +58,13 @@ class AuthController implements IAuthController {
             return next({message:'Something wrong please try again!!'})
         }
     }
+  
     async SignIn(req: Request, res: Response, next: NextFunction): Promise<void> {
         const data: SignInDTO = req.body
         
         const isUserFoundByEmailQuery = `select * from auth where email = ?`
         const updateLoggedInQuery = `update auth set isLoggedIn = true where id = ?`
-
+        
         try {
             
             const userFound = await new Promise<AuthDTO[]>((resolve,reject)=>{
